@@ -68,7 +68,7 @@ body {
 }
 
 .instruction-btn {
-  color: white;
+  color: #fef2bf;
   font-size: 1.5rem;
   cursor: pointer;
 }
@@ -79,13 +79,13 @@ body {
 .instruction-text {
   line-height: 1.5;
   font-size: 1.2rem;
-  color: white;
+  color: #fef2bf;
   display: inline-block;
   text-align: left;
   position: relative;
   left: 2%;
 }
 footer {
-  color: white;
+  color: #fef2bf;
   margin-top: 400px;
 }
