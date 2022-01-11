@@ -7,6 +7,8 @@ let level = 0;
 let started = false;
 let highscore = 0;
 
+$('.instruction-text').slideUp();
+
 const playSound = function (name) {
   const audio = new Audio(`sounds/${name}.mp3`);
   audio.play();
@@ -82,3 +84,7 @@ const startOver = function () {
   gamePattern = [];
   started = false;
 };
+
+$('.instruction-btn').click(function () {
+  $('.instruction-text').slideToggle().removeClass('hidden');
+});
