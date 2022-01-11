@@ -64,9 +64,7 @@ const checkAnswer = function (currentLevel) {
       $('body').removeClass('game-over');
     }, 200);
     if (level > highscore) highscore = level - 1;
-    $('#level-title').text(
-      'Game Over, Press Any Key to Restart.  Highscore:' + highscore
-    );
+    $('#level-title').text('Game Over.  Highscore:' + highscore);
     startOver();
   }
 };
