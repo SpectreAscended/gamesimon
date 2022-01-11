@@ -31,7 +31,7 @@ const nextSequence = function () {
 };
 
 $('.btn').click(function (event) {
-  let userChosenColor = event.target.id;
+  let userChosenColor = this.id;
   userClickedPattern.push(userChosenColor);
   playSound(userChosenColor);
   console.log(userClickedPattern);
@@ -40,32 +40,40 @@ $('.btn').click(function (event) {
 });
 
 $('.restart').click(function () {
-  if (!started) {
-    $('.restart').text('Restart Game');
+  $('.restart').css('background-color', 'darkorange');
+  setTimeout(function () {
+    $('.restart').css('background-color', 'orange');
+  }, 100);
+  if (!started && level === 0) {
     $('#level-title').text(`Level ${level}`);
     started = true;
     nextSequence();
+    setTimeout(function () {
+      $('.restart').addClass('hidden').text('Restart Game');
+    }, 100);
   }
 });
 
 const checkAnswer = function (currentLevel) {
   if (userClickedPattern[currentLevel] === gamePattern[currentLevel]) {
-    console.log('success');
     if (userClickedPattern.length === gamePattern.length) {
       setTimeout(function () {
         nextSequence();
       }, 1000);
     }
   } else {
+    if (level > highscore) highscore = level - 1;
     console.log('wrong');
     playSound('wrong');
     $('body').addClass('game-over');
     setTimeout(function () {
       $('body').removeClass('game-over');
     }, 200);
-    if (level > highscore) highscore = level - 1;
     $('#level-title').text('Game Over.  Highscore: ' + highscore);
-    startOver();
+    setTimeout(function () {
+      startOver();
+      $('.restart').removeClass('hidden');
+    }, 200);
   }
 };
 
