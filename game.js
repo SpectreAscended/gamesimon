@@ -62,7 +62,7 @@ const checkAnswer = function (currentLevel) {
     setTimeout(function () {
       $('body').removeClass('game-over');
     }, 200);
-    if (level > highscore) highscore = level;
+    if (level > highscore) highscore = level - 1;
     $('#level-title').text(
       'Game Over, Press Any Key to Restart.  Highscore:' + highscore
     );
