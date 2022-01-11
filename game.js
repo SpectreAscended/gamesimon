@@ -39,16 +39,9 @@ $('.btn').click(function (event) {
   checkAnswer(userClickedPattern.length - 1);
 });
 
-$(document).keydown(function () {
+$('.restart').click(function () {
   if (!started) {
-    $('#level-title').text(`Level ${level}`);
-    started = true;
-    nextSequence();
-  }
-});
-
-$(document).click(function () {
-  if (!started) {
+    $('.restart').text('Restart Game');
     $('#level-title').text(`Level ${level}`);
     started = true;
     nextSequence();
