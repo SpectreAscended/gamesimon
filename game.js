@@ -47,6 +47,14 @@ $(document).keydown(function () {
   }
 });
 
+$(document).click(function () {
+  if (!started) {
+    $('#level-title').text(`Level ${level}`);
+    started = true;
+    nextSequence();
+  }
+});
+
 const checkAnswer = function (currentLevel) {
   if (userClickedPattern[currentLevel] === gamePattern[currentLevel]) {
     console.log('success');
